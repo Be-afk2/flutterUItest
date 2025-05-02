@@ -1,0 +1,1 @@
+aqui va los widget que cubren toda la pantalla
