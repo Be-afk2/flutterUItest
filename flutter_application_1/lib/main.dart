@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/presentation/screens/counter/counterTest.dart';
 import 'package:flutter_application_1/presentation/screens/counter/counter_Funtions_screen.dart';
-import 'package:flutter_application_1/presentation/screens/counter/counter_screen.dart';
+// import 'package:flutter_application_1/presentation/screens/counter/counter_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: const Color.fromARGB(255, 3, 83, 27),
         // primarySwatch: Colors.blue,
       ),
-      home: CounterFuntionsScreen(),
+      home: CounterTest(),
     );
   }
 }

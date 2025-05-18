@@ -20,37 +20,35 @@ class _CounterFuntionsScreenState extends State<CounterFuntionsScreen> {
         ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            heroTag: UniqueKey(),
-
+          BotonFlotante(
+            icono: Icons.plus_one,
             onPressed: () {
-              counter++;
-
-              setState(() {});
+              setState(() {
+                counter++;
+              });
             },
-            child: const Icon(Icons.plus_one),
           ),
-          FloatingActionButton(
-            heroTag: UniqueKey(),
-
+          SizedBox(height: 20, width: 20),
+          BotonFlotante(
+            icono: Icons.exposure_minus_1,
             onPressed: () {
-              counter--;
-
-              setState(() {});
+              setState(() {
+                if (counter == 0) return;
+                counter--;
+              });
             },
-            child: const Icon(Icons.exposure_minus_1),
           ),
-          FloatingActionButton(
-            heroTag: UniqueKey(),
+          SizedBox(height: 20, width: 20),
+          BotonFlotante(
+            icono: Icons.restore_page,
             onPressed: () {
-              counter = 0;
-
-              setState(() {});
+              setState(() {
+                counter = 0;
+              });
             },
-            child: const Icon(Icons.restore_page),
           ),
         ],
       ),
@@ -67,6 +65,23 @@ class _CounterFuntionsScreenState extends State<CounterFuntionsScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class BotonFlotante extends StatelessWidget {
+  final IconData icono;
+
+  final VoidCallback? onPressed;
+  const BotonFlotante({super.key, required this.icono, this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      heroTag: UniqueKey(),
+      enableFeedback: false,
+      onPressed: onPressed,
+      child: Icon(icono),
     );
   }
 }
